@@ -18,11 +18,16 @@ deck::deck()
 
     for (int i = 0; i < suitsSize; i++)
     {
-        for (int j = 1; j <= 14; j++) 
+        for (int fV = 1; fV <= 14; fV++) 
         {
-            // append new node with stuff
+            insertCard(suits[i], fV);
         }
     }
+
+}
+
+void deck::insertCard(string s, int fV)
+{
 
 }
 

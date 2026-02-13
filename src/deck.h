@@ -17,6 +17,8 @@ class deck
         deck();
 
         void shuffle();
+        void insertCard(string s, int fV);
+        
         friend std::ostream& operator<<(std::ostream& ostr, const deck& d);
 
     private:
