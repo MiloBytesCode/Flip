@@ -5,19 +5,28 @@
 // 
 /* ========================================================================= */
 
+#pragma once
+
+#include <string>
+#include <iostream>
+
 class card 
 {
     public:
-        card(int cardStuff);
+        card(std::string suit, int faceVal);
 
-        void getValue() const;
-        void setValue(int newVal);
+        int getValue() const;
+        void setValue(int fV);
 
-        void getSuit() const;
-        void setSuit(int suit);
+        std::string getSuit() const;
+        void setSuit(std::string s);
+
+        friend std::ostream& operator<<(std::ostream& ostr, const card& c);
 
     private:
-        int suit;
-        int val;
+        std::string suit;
+        int faceVal;
 
 };
+
+

@@ -5,14 +5,21 @@
 // 
 /* ========================================================================= */
 
+#pragma once
+
+#include "card.h"
+#include "d_node.h"
+#include <iostream>
+
 class deck
 {
     public:
-        deck(int deckStuff);
+        deck();
 
         void shuffle();
+        friend std::ostream& operator<<(std::ostream& ostr, const deck& d);
 
     private:
-        int privateStuff;
+        node<card>* front;
 
 };
