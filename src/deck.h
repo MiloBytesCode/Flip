@@ -10,6 +10,8 @@
 #include "card.h"
 #include "d_node.h"
 #include <iostream>
+#include <string>
+
 
 class deck
 {
@@ -17,11 +19,11 @@ class deck
         deck();
 
         void shuffle();
-        void insertCard(string s, int fV);
+        void AddCard(std::string s, int fV);
         
         friend std::ostream& operator<<(std::ostream& ostr, const deck& d);
 
     private:
-        node<card>* front;
+        node<card>* front; //head of LL
 
 };

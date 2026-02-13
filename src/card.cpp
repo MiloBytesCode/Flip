@@ -73,7 +73,7 @@ std::ostream& operator<<(std::ostream& ostr, const card& c)
             ostr << c.faceVal;
     }
         
-    ostr << " of " << c.suit << "\n";
+    ostr << " of " << c.suit << "s\n";
 
     return ostr;
 }
