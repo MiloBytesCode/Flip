@@ -26,7 +26,7 @@ void card::setValue(int fV)
 // serve face card serve face card
 {
     // check for valid input
-    if (fV > 0 && fV < 15)
+    if (fV > 0 && fV < 14)
         this->faceVal = fV;
     else
         cout << "Invalid face value >:(\n";
@@ -59,10 +59,6 @@ std::ostream& operator<<(std::ostream& ostr, const card& c)
         
         case 13:
             ostr << "King";
-            break;
-
-        case 14:
-            ostr << "Ace";
             break;
 
         case 1:

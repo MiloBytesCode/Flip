@@ -18,11 +18,10 @@ deck::deck()
 // deck deck deck deck deck deck
 {
     string suits[4] = {"Club", "Diamond", "Heart", "Spade"};
-    int suitsSize = sizeof(suits) / sizeof(suits[0]);
 
-    for (int i = 0; i < suitsSize; i++)
+    for (int i = 0; i < 4; i++)
     {
-        for (int fV = 1; fV <= 14; fV++) 
+        for (int fV = 1; fV <= 13; fV++) 
         {
             AddCard(suits[i], fV);
         }
@@ -85,7 +84,7 @@ ostream& operator<<(ostream& ostr, const deck& d)
 
     while (curr != NULL)
     {
-        ostr << "," << curr->nodeValue;
+        ostr << curr->nodeValue;
         curr = curr->next;
     }
 
