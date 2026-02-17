@@ -24,6 +24,6 @@ class deck
         friend std::ostream& operator<<(std::ostream& ostr, const deck& d);
 
     private:
-        node<card>* front; //head of LL
+        node<card>* front = nullptr; //head of LL
 
 };

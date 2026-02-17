@@ -38,6 +38,7 @@ void deck::AddCard(std::string s, int fV)
 void deck::shuffle()
 // shuffle shuffle shuffle shuffle
 {
+    cout << "\n--- Shuffle Shuffle ---\n\n";
     if(front->next == NULL)
     {
         return;
