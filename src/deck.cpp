@@ -1,8 +1,10 @@
 /* ========================================================================= */
+// 11-zogwidrouhua-1a
+//
 // The DECK class implementation
 //
-// desc desc desc desc
-// 
+// Contains the implementation for the DECK class, including the constructor
+// which produces an standard, ordered 52-card deck by default. 
 /* ========================================================================= */
 
 #include "deck.h"
@@ -15,7 +17,7 @@ using namespace std;
 
 
 deck::deck()
-// deck deck deck deck deck deck
+// constructor for the DECK class, creating a list of 52-card
 {
     string suits[4] = {"Club", "Diamond", "Heart", "Spade"};
 
@@ -23,23 +25,28 @@ deck::deck()
     {
         for (int fV = 1; fV <= 13; fV++) 
         {
-            AddCard(suits[i], fV);
+            addCard(suits[i], fV);
         }
     }
 
 }
 
-void deck::AddCard(std::string s, int fV)
-{// puts a new card on the front of the deck
-    card new_card(s, fV); //makes a new card from passed in values
-    front = new node<card>(new_card, front);  // creates new node that stores new_card and points to old front, while reassigning front to the new node
+void deck::addCard(std::string s, int fV)
+// puts a new card on the front of the deck
+{
+    card new_card(s, fV);
+
+    // places new card at front of list
+    front = new node<card>(new_card, front);  
 }
 
 void deck::shuffle()
-// shuffle shuffle shuffle shuffle
+// shuffles the entire deck into a random arrangement
 {
     cout << "\n--- Shuffle Shuffle ---\n\n";
+
     if(front->next == NULL)
+    // make sure deck is not empty
     {
         return;
     }
@@ -48,26 +55,29 @@ void deck::shuffle()
     node<card>* curr = front;
 
     while(curr != nullptr)
+    // adds all cards to new vector
     {
         cards.push_back(curr);
         curr = curr->next;
 
     }
 
-    //cards is now a vector of pointers to different nodes
+    // uses std::shuffle to randomize vector
     std::random_device rd;
-    std::mt19937 g(rd()); //makes seeed for shuffle function
+    std::mt19937 g(rd()); //makes seed for shuffle function
     std::shuffle(cards.begin(), cards.end(), g);//rearranges pointers
 
-    int deck_size = cards.size() - 1; //need minus 1 b/c most things start @ zero but size() starts @ 1
-    front = cards[deck_size]; //starts linked list by making front a pointer to whatever was last in vector
+    // sets up new linked list
+    int deck_size = cards.size() - 1; 
+    front = cards[deck_size]; 
     curr = front;
-    cards.pop_back(); //removes the added node from the vector of things to be added
+    cards.pop_back(); 
     deck_size--;
 
     while(cards.empty() == false)
+    // reassemble the linked list from the vector
     {
-        curr->next = cards[deck_size]; //adds next node and decreases card vector
+        curr->next = cards[deck_size]; 
         cards.pop_back();
         deck_size--;
 
@@ -78,7 +88,7 @@ void deck::shuffle()
 }
 
 ostream& operator<<(ostream& ostr, const deck& d)
-// <<<<<<<< << < << <<< <<< << << ostr
+// takes DECK instance as rhs input and appends every card to ostream
 {
     node<card> *curr;
     curr = d.front;

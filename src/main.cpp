@@ -1,15 +1,16 @@
 /* ========================================================================= */
+// 11-zogwidrouhua-1a
+//
 // PROJECT FLIP
 //
-// desc desc desc desc
-//
+// The runtime for Flip Project 2 Part A
 /* ========================================================================= */
-
 
 #include <iostream>
 #include "deck.h"
 #include "card.h"
 using namespace std;
+
 
 int main()
 {

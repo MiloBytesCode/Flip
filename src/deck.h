@@ -1,8 +1,11 @@
 /* ========================================================================= */
+// 11-zogwidrouhua-1a
+//
 // The DECK class header files
 //
-// desc desc desc desc
-// 
+// Contains the declaraction for the DECK class. This class stores a linked
+// list of CARD instances, which are to be initialized as a standard 52-card
+// playing deck. This class can also be shuffled.
 /* ========================================================================= */
 
 #pragma once
@@ -16,14 +19,18 @@
 class deck
 {
     public:
+        // constructor
         deck();
 
+        // functions
         void shuffle();
-        void AddCard(std::string s, int fV);
+        void addCard(std::string s, int fV);
         
+        // operators
         friend std::ostream& operator<<(std::ostream& ostr, const deck& d);
 
     private:
-        node<card>* front = nullptr; //head of LL
+        // list of cards
+        node<card>* front = nullptr;
 
 };
