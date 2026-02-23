@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-1a
+// 11-zogwidrouhua-2a
 //
 // The CARD class header files
 //
@@ -33,6 +33,6 @@ class card
         std::string suit;
         int faceVal;
 
-};
+}; // end class
 
 

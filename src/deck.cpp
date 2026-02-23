@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-1a
+// 11-zogwidrouhua-2a
 //
 // The DECK class implementation
 //
@@ -21,29 +21,29 @@ deck::deck()
 {
     string suits[4] = {"Club", "Diamond", "Heart", "Spade"};
 
+    // for each suit
     for (int i = 0; i < 4; i++)
     {
+        // for each value within the suit
         for (int fV = 1; fV <= 13; fV++) 
         {
             addCard(suits[i], fV);
         }
     }
 
-}
+} // end deck constructor
 
 void deck::addCard(std::string s, int fV)
 // puts a new card on the front of the deck
 {
     card new_card(s, fV);
-
-    // places new card at front of list
     front = new node<card>(new_card, front);  
-}
+} // end addCard
 
 void deck::shuffle()
 // shuffles the entire deck into a random arrangement
 {
-    cout << "\n--- Shuffle Shuffle ---\n\n";
+    cout << "><><>< Shuffling initiated ><><><\n*shuffling noises...*\n";
 
     if(front->next == NULL)
     // make sure deck is not empty
@@ -85,7 +85,9 @@ void deck::shuffle()
 
     }
     curr->next = NULL; //makes last node point to null
-}
+
+    cout << "><><>< Deck Shuffled ><><><\n";
+} // end shuffle
 
 ostream& operator<<(ostream& ostr, const deck& d)
 // takes DECK instance as rhs input and appends every card to ostream
@@ -100,4 +102,4 @@ ostream& operator<<(ostream& ostr, const deck& d)
     }
 
     return ostr;
-}
+} // end operator overload

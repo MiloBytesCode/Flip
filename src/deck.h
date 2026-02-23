@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-1a
+// 11-zogwidrouhua-2a
 //
 // The DECK class header files
 //
@@ -33,4 +33,4 @@ class deck
         // list of cards
         node<card>* front = nullptr;
 
-};
+}; // end class

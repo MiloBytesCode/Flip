@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-1a
+// 11-zogwidrouhua-2a
 //
 // The CARD class implementation 
 //
@@ -55,6 +55,10 @@ std::ostream& operator<<(std::ostream& ostr, const card& c)
     // based on fV, append card name to ostream
     switch(c.faceVal) 
     {
+        case 1:
+            ostr << "Ace";
+            break;
+
         case 11:
             ostr << "Jack";
             break;
@@ -67,15 +71,11 @@ std::ostream& operator<<(std::ostream& ostr, const card& c)
             ostr << "King";
             break;
 
-        case 1:
-            ostr << "Ace";
-            break;
-
         default:
             ostr << c.faceVal;
-    }
+    } // end switch
         
     ostr << " of " << c.suit << "s\n";
 
     return ostr;
-}
+} // end operator overload

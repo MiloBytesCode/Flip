@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-1a
+// 11-zogwidrouhua-2a
 //
 // PROJECT FLIP
 //
@@ -14,13 +14,14 @@ using namespace std;
 
 int main()
 {
-    deck tasty_double_decker;
+    // Before Shuffle
+    cout << "><><>< Fresh Deck ><><><\n";
+    deck standard_deck;
+    cout << standard_deck;
 
-    cout << tasty_double_decker;
-
-    tasty_double_decker.shuffle();
-
-    cout << tasty_double_decker;
+    // After Shuffle
+    standard_deck.shuffle();
+    cout << standard_deck;
     
     return 0;
-}
+} // end main
