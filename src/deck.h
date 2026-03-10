@@ -25,6 +25,8 @@ class deck
         //destructor
         ~deck();
 
+        deck(bool make_standard); // constructor for hand deck
+
         // functions
         void shuffle();
         void addCard(std::string s, int fV);

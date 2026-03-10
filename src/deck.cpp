@@ -15,7 +15,7 @@
 #include <string>
 using namespace std;
 
-
+/*
 deck::deck()
 // constructor for the DECK class, creating a list of 52-card
 {
@@ -33,6 +33,10 @@ deck::deck()
 
 } // end deck constructor
 
+*/
+
+deck::deck() : deck(true) {} // rewrite default constructor to call the standard deck constructor
+
 
 // destructor for deck class
 deck::~deck()
@@ -46,6 +50,24 @@ deck::~deck()
     }
 } // end deck destructor
 
+// constructor for hand deck (empty deck)
+deck::deck(bool make_standard)
+{
+    front = nullptr;
+    // if true, make standard deck, if false make empty deck for hand
+    if (make_standard)
+    {
+        string suits[4] = {"Spade", "Heart", "Diamond", "Club"};
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int fV = 13; fV >= 1; fV--)
+            {
+                addCard(suits[i], fV);
+            }
+        }
+    }
+}
 
 void deck::addCard(std::string s, int fV)
 // puts a new card on the front of the deck
