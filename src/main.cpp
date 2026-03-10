@@ -87,14 +87,23 @@ void playFlip()
             cout << "Invalid choice. Please enter either f or e, try again\n";
             continue;
         }
+        
+        int n;
+        while (true){
+            cout << "Please pick a card from your hand of " << hand_deck.get_size() << " cards: " ;
+            cin >> n;
+            n -= 1;
 
-        node<card>* flipped = hand_deck.deal(); // flip the top card of the hand deck
-
-        if (flipped == nullptr) // check if hand deck is empty
-        {
-            cout << "There are no more cards left in hand deck.\n";
-            break;
+            if (n < hand_deck.get_size() + 1) {
+                break;
+            }
+            else {
+                cout << "ERROR - please input a number from 0 to " << hand_deck.get_size() << endl;
+            }
         }
+            
+
+        node<card>* flipped = hand_deck.deal(n); // flip the top card of the hand deck
 
         // reveal flipped card 
         cout << "Flipped card: " << flipped->nodeValue;
@@ -123,6 +132,9 @@ void playFlip()
         cout << "Current score: " << score << endl;
 
         delete flipped; // bonus section for b6 each card only flipped once
+
+        cout << endl << "remaining hand: " << endl;
+        cout << hand_deck;
     }
 
     cout << "\nGame Over!\n";
