@@ -81,7 +81,7 @@ void playFlip()
             break;
         }
 
-        cout << "\nPlz Enter f to flip a card or e to end and exit the game: ";
+        cout << "\nEnter \'F\' to flip a card or \'E\' to end and exit the game: ";
         cin >> userInput;
 
         if (userInput == 'e' || userInput == 'E')
@@ -91,14 +91,14 @@ void playFlip()
 
         if (userInput != 'f' && userInput != 'F')
         {
-            cout << "Invalid choice. Please enter either f or e, try again\n";
+            cout << "Invalid choice. Please enter either \'F\' or \'E\', try again\n";
             continue;
         }
         
         int n;
         // prompt user to pick a card from hand deck with with valid input handling
         while (true){
-            cout << "Please pick a card from your hand card number"  << hand_deck.get_size() << " : " ;
+            cout << "Please pick a card from the deck (1 to "  << hand_deck.get_size() << ") : " ;
             while (!(std::cin >> n)) { //clean inputs
             std::cout << "Invalid input. please enter an integer: ";
             std::cin.clear();
