@@ -29,9 +29,7 @@
         "-Wall",
         "-Wextra",
         "-g",
-        "src/card.cpp",
         "src/main.cpp",
-        "src/deck.cpp",
         "-o",
         "build/out"
       ],
