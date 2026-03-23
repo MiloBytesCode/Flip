@@ -21,7 +21,7 @@ Dictionary::Dictionary(string dictName)
         ifstream DictFile("../" + dictName);
     // runs if cannot open file
     if (!DictFile) {
-        cerr << "Error opening file\n";
+        cerr << "Error opening dict file\n";
         return;
     }
     // read words into vec

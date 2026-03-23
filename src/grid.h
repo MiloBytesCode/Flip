@@ -16,5 +16,5 @@ class Grid
         char readIndex(int row, int col) const;
 
     private:
-        matrix<std::string> letters;
+        matrix<char> letters;
 };
