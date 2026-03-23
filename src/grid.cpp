@@ -35,12 +35,14 @@ Grid::Grid(const string& letterGrid_fn)
     }
 
     // resize matric to fit all letters
-    letters.resize(lines.size(), lines[0].size());
+    int lines_total = lines.size();
+    int line_size = lines[0].size();
+    letters.resize(lines_total, line_size);
 
     // populate matrix with letters
-    for (int i = 0; i < lines.size(); i++)
+    for (int i = 0; i < lines_total; i++)
     {
-        for (int j = 0; j < lines[0].size(); j++)
+        for (int j = 0; j < line_size; j++)
             letters[i][j] = lines[i][j];
     }
 

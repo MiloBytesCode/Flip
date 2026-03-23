@@ -12,7 +12,7 @@ using namespace std;
 
 void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 {
-    ofstream found_words("test_output.txt");
+    ofstream found_words((output_fn + ".txt"));
     // possible directions to expand word vector
     int dir_row[8] = {-1, -1,  0,  1,  1,  1,  0, -1};
     int dir_col[8] = { 0,  1,  1,  1,  0, -1, -1, -1};

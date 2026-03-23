@@ -37,11 +37,12 @@ void Dictionary::sort()
 // uses selection sort to organize dictionary word vector
 {
     // iterates through vector
-    for(int i = 0; i < words.size(); ++i) {
+    int size = words.size();
+    for(int i = 0; i < size; ++i) {
         int current_min = i;
         // iterates through unsorted portion of vector, keeping track of index 
         // with the lowest value
-        for(int j = i + 1; j < words.size(); ++j){
+        for(int j = i + 1; j < size; ++j){
             if(words[j] < words[current_min]){
                 current_min = j;
             }
@@ -79,7 +80,8 @@ int Dictionary::wordLookup(string word) const
 ostream& operator<<(ostream& ostr, const Dictionary& dict)
 {
     // print all words in dictionary
-    for(int i = 0; i < dict.words.size(); i++){
+    int size = dict.words.size();
+    for(int i = 0; i < size; i++){
         ostr << dict.words[i] << '\n';
     }
     return ostr;
