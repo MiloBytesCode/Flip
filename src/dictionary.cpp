@@ -6,77 +6,54 @@
 // The implementation for the Dictionary Class
 /* ========================================================================= */
 
-#include "dictionary.h"
-#include "d_except.h"
-#include <iostream>
+#include "grid.h"
 #include <fstream>
+#include <cctype>
+#include "d_matrix.h"
 using namespace std;
 
-
-Dictionary::Dictionary(string dictName)
-// given a dictionary file, creates Dictionary object
+Grid::Grid(string letterGrid_fn)
+// given a letterGrid file, creates a Grid object
 {
-    string DictLine;
     // open and read file
-        ifstream DictFile("../" + dictName);
+    ifstream GridFile("../" + letterGrid_fn);
+
     // runs if cannot open file
-    if (!DictFile) {
-        cerr << "Error opening dict file\n";
+    if (!GridFile) {
+        cerr << "Error opening grid file\n";
         return;
     }
-    // read words into vec
-    while (getline (DictFile, DictLine)) {
-        words.push_back(DictLine);
-    }
-}
 
-void Dictionary::sort()
-// uses selection sort to organize dictionary word vector
-{
-    // iterates through vector
-    for(int i = 0; i < words.size(); ++i) {
-        int current_min = i;
-        // iterates through unsorted portion of vector, keeping track of index with the lowest value
-        for(int j = i + 1; j < words.size(); ++j){
-            if(words[j] < words[current_min]){
-                current_min = j;
+    // gets # of rows and # of cols from 1st line of input file
+    int numRows, numCols;
+    GridFile >> numRows >> numCols;
+
+    // size the matrix using the first line
+    letters = matrix<char>(numRows, numCols);
+
+    string GridLine;
+    getline(GridFile, GridLine); // clears the leftover newline after reading dimensions
+
+    int row = 0;
+    while (getline(GridFile, GridLine) && row < numRows) {
+        int column = 0;
+
+        // iterates through the Grid Line
+        for (int i = 0; i < GridLine.size() && column < numCols; i++) {
+            // only runs when the character is a letter
+            if (isalpha(GridLine[i])) {
+                // sets that specific row column value to read letter and adds one to column
+                letters[row][column] = GridLine[i];
+                column++;
             }
         }
-        // swaps 1st unsorted index with the lowest unsorted value
-        swap(words[i], words[current_min]);
+
+        row++;
     }
 }
 
-int Dictionary::wordLookup(string word) const
-// given a word, returns index of word in dictionary if it exists, else -1
+char Grid::readIndex(int row, int col) const
+// given a row and col, returns the value at that index
 {
-    int lowest = 0;
-    int highest = words.size() - 1;
-
-    while(lowest <= highest){
-        int middle = (lowest + highest) / 2;
-        // if word is found this evaulates as true and returns index of word
-        if(words[middle] == word){
-            return middle;
-        }
-        // if word is greater than middle word, changes the lowest possible index to midd + 1
-        else if(words[middle] < word){
-            lowest = middle + 1;
-        }
-        // only get here if words[middle] > word, so now highest possible value is middle - 1
-        else{
-            highest = middle - 1;
-        }
-    }
-    // returns -1 if not found
-    return -1;
-}
-
-ostream& operator<<(ostream& ostr, const Dictionary& dict)
-{
-    // print all words in dictionary
-    for(int i = 0; i < dict.words.size(); i++){
-        ostr << dict.words[i] << '\n';
-    }
-    return ostr;
+    return letters[row][col];
 }
