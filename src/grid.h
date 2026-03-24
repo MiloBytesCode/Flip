@@ -6,6 +6,8 @@
 // The header for the Grid Class
 /* ========================================================================= */
 
+#pragma once
+
 #include "d_matrix.h"
 #include <iostream>
 

@@ -10,7 +10,6 @@
 #include <fstream>
 #include <cctype>
 #include <vector>
-#include "d_matrix.h"
 using namespace std;
 
 Grid::Grid(const string& letterGrid_fn)

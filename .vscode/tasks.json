@@ -10,9 +10,10 @@
         "-Wall",
         "-Wextra",
         "-g",
+        "-v",
         "src/*.cpp",
         "-o",
-        "build/out"
+        "build/out",
       ],
       "options": {
         "cwd": "${workspaceFolder}"

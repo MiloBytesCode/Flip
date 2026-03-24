@@ -7,6 +7,9 @@
 /* ========================================================================= */
 
 #include "word_search.h"
+#include <fstream>
+#include <iomanip>
+#include <sstream>
 using namespace std;
 
 

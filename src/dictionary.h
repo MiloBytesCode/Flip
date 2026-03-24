@@ -6,6 +6,8 @@
 // The class declaraction for the Dictionary
 /* ========================================================================= */
 
+#pragma once
+
 #include <string>
 #include <vector>
 #include <iostream>

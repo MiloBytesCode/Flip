@@ -9,9 +9,6 @@
 #include <iostream>
 #include "dictionary.h"
 #include "word_search.h"
-#include "dictionary.cpp"
-#include "word_search.cpp"
-#include "grid.cpp"
 #include "grid.h"
 using namespace std;
 
@@ -22,6 +19,6 @@ keyboard, (2) read the data from input files for grid and dictionary, (3) sort a
 dictionary, and (4) prints out candidate words that can be found in the dictionary.
 */
 {
-    search();
+    //search();
     return 0;
 } 
