@@ -52,12 +52,7 @@ Grid::Grid(const string& letterGrid_fn)
     cout << "done\n";
     // close file once finished
     letterGrid.close();
-}
-
-char Grid::readIndex(int row, int col) const
-{
-    return letters[row][col];
-}
+} // end Grid constructor
 
 ostream& operator<<(ostream& ostr, const Grid& grid)
 // prints out all letters in the grid in the shape of the grid
@@ -70,7 +65,7 @@ ostream& operator<<(ostream& ostr, const Grid& grid)
         ostr << endl;
     }
     return ostr;
-}
+} // end << operator
 
 int Grid::numRows() const
 {
@@ -80,4 +75,9 @@ int Grid::numRows() const
 int Grid::numCols() const
 {
     return letters.cols();
+}
+
+char Grid::readIndex(int row, int col) const
+{
+    return letters[row][col];
 }

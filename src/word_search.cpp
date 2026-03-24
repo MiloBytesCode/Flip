@@ -14,6 +14,8 @@ using namespace std;
 
 
 void findMatches(Dictionary& dict, Grid& grid, string output_fn)
+// given dictionary and grid objects and an output file string, find all 
+// words in grid that match in the dictionary and save to output file
 {
     ofstream found_words(output_fn);
     // possible directions to expand word vector
@@ -53,10 +55,10 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                         if (word_index != -1)
                         {
                             total_words_found++;
-                            cout << "word found [" << total_words_found << "]\n";
+                            cout << "found >"<< potential_word << " | total [";
+                            cout << total_words_found << "]\n";
 
                             // setup proper format for output
-                            //found_words << "word        start point (i,j)      found index\n";
                             found_words << left
                             << setw(15) << potential_word
                             << setw(22) << ("(" + to_string(i) + "," + to_string(j) + ")")
@@ -75,6 +77,8 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 } // end findMatches
 
 void search()
+// prompts user for grid file, dictionary file, and output file. Then, a word
+// search is started and results are saved to the output file
 {
     string grid_file, dict_file, out_file;
 
@@ -101,4 +105,4 @@ void search()
 
     // search complete and data written to out file
     cout << "completed\nOutput written to \"" << out_file << "\"\n";
-}
+} // end search

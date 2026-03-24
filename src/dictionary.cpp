@@ -34,7 +34,7 @@ Dictionary::Dictionary(const string& dictName)
             words.push_back(line);
     }
     cout << "done\n";
-}
+} // end dictionary constructor
 
 void Dictionary::sort()
 // uses selection sort to organize dictionary word vector
@@ -55,7 +55,7 @@ void Dictionary::sort()
         swap(words[i], words[current_min]);
     }
     cout << "done\n";
-}
+} // end selection sort
 
 int Dictionary::wordLookup(string word) const
 // given a word, returns index of word in dictionary if it exists, else -1
@@ -69,18 +69,20 @@ int Dictionary::wordLookup(string word) const
         if(words[middle] == word){
             return middle;
         }
-        // if word is greater than middle word, changes the lowest possible index to midd + 1
+        // if word is greater than middle word, changes the lowest possible 
+        // index to midd + 1
         else if(words[middle] < word){
             lowest = middle + 1;
         }
-        // only get here if words[middle] > word, so now highest possible value is middle - 1
+        // only get here if words[middle] > word, so now highest possible value
+        // is middle - 1
         else{
             highest = middle - 1;
         }
-    }
+    } // end while
     // returns -1 if not found
     return -1;
-}
+} // end wordLookup
 
 ostream& operator<<(ostream& ostr, const Dictionary& dict)
 {
