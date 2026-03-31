@@ -76,8 +76,8 @@ vector<T> Heap<T>::heapsort() {
 }
 */
 
-// updated
 
+// updated logic for heap sort, quicksort, and selection sort
 template <typename T>
 int Heap<T>::parent(int n) const {
     return (n - 1) / 2;
