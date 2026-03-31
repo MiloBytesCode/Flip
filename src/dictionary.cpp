@@ -87,11 +87,12 @@ int Dictionary::wordLookup(string word) const
 } // end wordLookup
 */
 
+// updated logic for word lookup
 int Dictionary::wordLookup(const string& word) const
 {
     int lowest = 0;
     int highest = words.size() - 1;
-
+    // binary search for word in sorted dictionary
     while (lowest <= highest) {
         int middle = (lowest + highest) / 2;
 
@@ -108,6 +109,8 @@ int Dictionary::wordLookup(const string& word) const
 
     return -1;
 }
+
+// operator overload for printing dictionary
 ostream& operator<<(ostream& ostr, const Dictionary& dict)
 {
     // print all words in dictionary
@@ -117,6 +120,7 @@ ostream& operator<<(ostream& ostr, const Dictionary& dict)
     }
     return ostr;
 }
+
 void Dictionary::quicksort()
 {
     cout << "Sorting dictionary with quicksort...";
@@ -126,6 +130,7 @@ void Dictionary::quicksort()
     cout << "done\n";
 }
 
+// helper to recursively sort subarrays
 void Dictionary::quicksortHelper(int low, int high)
 {
     if (low < high) {
@@ -135,22 +140,24 @@ void Dictionary::quicksortHelper(int low, int high)
     }
 }
 
+// partition function for quicksort
 int Dictionary::partition(int low, int high)
 {
     string pivot = words[high];
     int i = low - 1;
-
+    // iterate through subarray
     for (int j = low; j < high; j++) {
         if (words[j] <= pivot) {
             i++;
             swap(words[i], words[j]);
         }
     }
-
+    // place pivot in correct position
     swap(words[i + 1], words[high]);
     return i + 1;
 }
 
+// organize dictionary word vector with heapsort
 void Dictionary::heapsort() {
     cout << "Sorting dictionary with heapsort...";
     Heap<string> h;

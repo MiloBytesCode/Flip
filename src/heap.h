@@ -17,10 +17,10 @@ class Heap
 {
     public:
 
-        int parent(int) const;
-        int left(int) const;
-        int right(int) const;
-        T getItem(int) const;
+        int parent(int) const; //returns value of parent of a node
+        int left(int) const; //returns value of left child of node
+        int right(int) const;   // returns value of right child of node
+        T getItem(int) const; // returns node value
     /*
         T parent(int); //returns value of parent of a node
         T left(int); //returns value of left child of node
