@@ -122,15 +122,5 @@ void search(int sortType)
 
     cout << "completed\nOutput written to \"" << out_file << "\"\n";
     
-/*
-    // get name for output file
-    cout << "Enter name for \"OUTPUT_FILE\": ";
-    cin >> out_file;
 
-    cout << "Search started...";
-    findMatches(dict, grid, out_file);
-
-    // search complete and data written to out file
-    cout << "completed\nOutput written to \"" << out_file << "\"\n";
-    */
 } // end search
