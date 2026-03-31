@@ -72,3 +72,9 @@ void Heap<T>::buildMaxHeap() {
         maxHeapify(i);
     }
 }
+
+template <typename T>
+vector<T> Heap<T>::heapsort() {
+    buildMaxHeap();
+    return stored;
+}

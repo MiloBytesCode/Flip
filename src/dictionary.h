@@ -12,6 +12,7 @@
 #include <vector>
 #include <iostream>
 
+
 class Dictionary
 {
     public:
@@ -19,6 +20,7 @@ class Dictionary
         Dictionary(const std::string& dictName);
         void sort();
         int wordLookup(std::string word) const;
+        vector<string> heapsort();
 
         // operators
         friend std::ostream& operator<<(std::ostream& ostr, const Dictionary& dict);

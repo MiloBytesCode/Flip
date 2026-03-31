@@ -11,6 +11,7 @@
 #include <cctype>
 #include <iostream>
 #include "d_matrix.h"
+#include "heap.h"
 using namespace std;
 
 Dictionary::Dictionary(const string& dictName)
@@ -92,4 +93,11 @@ ostream& operator<<(ostream& ostr, const Dictionary& dict)
         ostr << dict.words[i] << '\n';
     }
     return ostr;
+}
+
+vector<string> Dictionary::heapsort() {
+    Heap<string> h;
+    h.initializeMaxHeap(words);
+    words = h.heapsort();
+    return words;
 }
