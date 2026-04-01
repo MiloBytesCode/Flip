@@ -10,6 +10,7 @@
 #include <fstream>
 #include <iomanip>
 #include <sstream>
+#include <filesystem>
 using namespace std;
 
 
@@ -17,6 +18,9 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 // given dictionary and grid objects and an output file string, find all 
 // words in grid that match in the dictionary and save to output file
 {
+
+    
+
     ofstream found_words(output_fn);
     // possible directions to expand word vector
     int dir_row[8] = {-1, -1,  0,  1,  1,  1,  0, -1};
@@ -114,8 +118,23 @@ void search(int sortType)
         dict.sort();
     }
 
-    cout << "Enter name for \"OUTPUT_FILE\": ";
-    cin >> out_file;
+    while (true) {
+        cout << "Enter name for \"OUTPUT_FILE\": ";
+        cin >> out_file;
+        filesystem::path fp = out_file;
+        if (filesystem::exists(fp)) {
+
+            cout << "A file with that name already exists. Would you like to overwrite it? y/n: ";
+            string answer;
+            cin >> answer;
+            if (answer == "y") {
+                break;
+            } else if (answer == "n") {
+                continue;
+            }
+        };
+    }
+    
 
     cout << "Search started...";
     findMatches(dict, grid, out_file);
